@@ -1,0 +1,166 @@
+/* =========================================================
+   MICROEXPRESS RMA — PALETA GLOBAL SLATE CYBERPUNK LIGHT
+   vistas/css/estilos.css
+========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@500;600;700&display=swap');
+
+:root {
+    /* Fondo y Superficies en Tono Claro */
+    --bg-cyber-light: #f0f4f8;
+    --card-cyber-light: #ffffff;
+    --border-cyber-subtle: #cbd5e1;
+
+    /* Colores de Texto */
+    --text-cyber-dark: #0f172a;
+    --text-cyber-muted: #475569;
+
+    /* Acentos Neón Adaptados a Fondo Claro */
+    --neon-cyan-dark: #0284c7;
+    --neon-cyan-glow: #00b4d8;
+    --neon-green-dark: #15803d;
+    --neon-yellow-dark: #d97706;
+    --neon-purple-dark: #7e22ce;
+    --neon-red-dark: #dc2626;
+
+    /* Fuentes del Sistema */
+    --font-ui: 'Rajdhani', sans-serif;
+    --font-code: 'Share Tech Mono', monospace;
+}
+
+/* =========================================================
+   1. CORRECCIÓN DE ESPACIOS Y MARGENES DE ADMINLTE (100% ANCHO)
+========================================================= */
+body,
+.wrapper,
+.content-wrapper {
+    background-color: var(--bg-cyber-light) !important;
+    font-family: var(--font-ui);
+    color: var(--text-cyber-dark);
+}
+
+/* Anular el margen izquierdo de AdminLTE */
+.content-wrapper,
+.main-footer,
+.main-header {
+    margin-left: 0 !important;
+    transition: none !important;
+}
+
+/* Envoltura global con Trama Tecnológica */
+.wrapper {
+    overflow-x: hidden !important;
+    min-height: 100vh;
+    background-image:
+        radial-gradient(circle at 50% 10%, rgba(2, 132, 199, 0.05) 0%, transparent 60%),
+        linear-gradient(rgba(203, 213, 225, 0.2) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(203, 213, 225, 0.2) 1px, transparent 1px) !important;
+    background-size: 100% 100%, 20px 20px, 20px 20px !important;
+}
+
+/* =========================================================
+   2. COMPONENTES GLOBALES (TARJETAS, CABECERAS Y BOTONES)
+========================================================= */
+.dashboard-cyber-wrapper {
+    background: transparent !important;
+    padding: 20px;
+}
+
+/* Cabecera del Módulo */
+.cyber-header {
+    background-color: #ffffff;
+    border-bottom: 2px solid var(--neon-cyan-dark);
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.header-brand-glitch h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-cyber-dark);
+    margin: 0;
+}
+
+/* Paneles y Tarjetas */
+.cyber-panel-card {
+    background: var(--card-cyber-light) !important;
+    border: 1px solid var(--border-cyber-subtle) !important;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.04);
+}
+
+.border-neon-cyan {
+    border-left: 4px solid var(--neon-cyan-dark) !important;
+}
+
+.border-neon-blue {
+    border-left: 4px solid var(--neon-cyan-glow) !important;
+}
+
+.border-neon-green {
+    border-left: 4px solid var(--neon-green-dark) !important;
+}
+
+.border-neon-yellow {
+    border-left: 4px solid var(--neon-yellow-dark) !important;
+}
+
+/* Tipografía de Acento */
+.font-mono {
+    font-family: var(--font-code);
+}
+
+.t-cyan {
+    color: var(--neon-cyan-dark);
+    font-weight: bold;
+}
+
+.cyan-accent {
+    color: var(--neon-cyan-dark);
+    font-weight: bold;
+}
+
+/* Tablas */
+.cyber-mini-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+}
+
+.cyber-mini-table th {
+    font-family: var(--font-code);
+    font-size: 0.75rem;
+    color: var(--text-cyber-muted);
+    padding: 12px 8px;
+    border-bottom: 2px solid var(--border-cyber-subtle);
+    text-transform: uppercase;
+    text-align: center;
+    background: #f8fafc;
+}
+
+.cyber-mini-table td {
+    padding: 12px 8px;
+    border-bottom: 1px solid #f1f5f9;
+    color: var(--text-cyber-dark);
+    text-align: center;
+}
+
+/* Inputs */
+.cyber-input,
+.cyber-input-search {
+    background: #f8fafc;
+    border: 1px solid var(--border-cyber-subtle);
+    color: var(--text-cyber-dark);
+    border-radius: 4px;
+}
+
+.cyber-input:focus,
+.cyber-input-search:focus {
+    border-color: var(--neon-cyan-dark);
+    background: #ffffff;
+    outline: none;
+}

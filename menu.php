@@ -1,0 +1,404 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+$id_rol = $_SESSION['id_rol'] ?? null;
+?>
+
+<nav class="cyber-nav-hub glass-panel-neon">
+    <div class="nav-scan-lines"></div>
+    <button type="button" class="rma-menu-toggle" aria-expanded="false" aria-controls="rmaMenuPrincipal">☰ Menú</button>
+    <ul class="nav-nodes-list" id="rmaMenuPrincipal">
+
+        <!-- LOGO DE MARCA -->
+        <li class="brand-node-logo">
+            <a href="dashboard" class="logo-link-trigger">
+                <img src="vistas/img/micrologo3.png" alt="Microexpress Logo" class="cyber-nav-logo">
+            </a>
+        </li>
+
+        <!-- [01] SEGURIDAD Y CONFIGURACIÓN -->
+        <?php if ($id_rol == 2): ?>
+            <!-- ADMINISTRADOR: ACCESO COMPLETO -->
+            <li class="nav-node-dropdown border-neon-blue">
+                <a href="#" class="node-trigger text-neon-blue">
+                    <i class="fa fa-shield"></i> [01] Configuración <i class="fa fa-caret-down node-arrow"></i>
+                </a>
+                <ul class="dropdown-terminal">
+                    <li><a href="usuarios"><span class="t-cyan">//</span> GESTIÓN DE USUARIOS</a></li>
+                    <li><a href="roles"><span class="t-cyan">//</span> CONTROL DE ROLES</a></li>
+                    <li><a href="perfil"><span class="t-cyan">//</span> MI PERFIL</a></li>
+                    <li><a href="configuracion"><span class="t-cyan">//</span> PARÁMETROS DEL SISTEMA</a></li>
+                </ul>
+            </li>
+        <?php elseif ($id_rol == 1): ?>
+            <!-- TÉCNICO: ACCESO A MI PERFIL -->
+            <li class="nav-node-dropdown border-neon-blue">
+                <a href="perfil" class="node-trigger text-neon-blue">
+                    <i class="fa fa-user"></i> [01] Mi Perfil
+                </a>
+            </li>
+        <?php endif; ?>
+
+        <!-- [02] GESTIÓN OPERATIVA RMA (TÉCNICOS Y ADMIN) -->
+        <?php if ($id_rol == 1 || $id_rol == 2): ?>
+            <li class="nav-node-dropdown border-neon-yellow">
+                <a href="#" class="node-trigger text-neon-yellow">
+                    <i class="fa fa-wrench"></i> [02] Gestión RMA <i class="fa fa-caret-down node-arrow"></i>
+                </a>
+                <ul class="dropdown-terminal">
+                    <li><a href="nuevoCaso"><span class="t-yellow">//</span> REGISTRO NUEVO RMA</a></li>
+                    <li><a href="bandejaCasos"><span class="t-yellow">//</span> BANDEJA DE CASOS</a></li>
+                    <li><a href="taller"><span class="t-yellow">//</span> DIAGNÓSTICO DE TALLER</a></li>
+                    <li><a href="proveedoresRma"><span class="t-yellow">//</span> FLUJO EXTERNO GARANTÍAS</a></li>
+                    <li><a href="historialEstado"><span class="t-yellow">//</span> HISTORIAL DE ESTADOS</a></li>
+                </ul>
+            </li>
+        <?php endif; ?>
+
+        <!-- [03] CONTACTOS Y COMUNICACIONES (TODOS LOS USUARIOS LOGUEADOS) -->
+        <?php if ($id_rol !== null && $id_rol != 5): ?>
+            <li class="nav-node-dropdown border-neon-green">
+                <a href="#" class="node-trigger text-neon-green">
+                    <i class="fa fa-comments"></i> [03] Comunicaciones <i class="fa fa-caret-down node-arrow"></i>
+                </a>
+                <ul class="dropdown-terminal">
+                    <li><a href="clientes"><span class="t-green">//</span> DIRECTORIO DE CLIENTES</a></li>
+                    <li><a href="proveedores"><span class="t-green">//</span> DIRECTORIO DE PROVEEDORES</a></li>
+                    <li><a href="notificaciones"><span class="t-green">//</span> WHATSAPP Y CORREO</a></li>
+                </ul>
+            </li>
+        <?php endif; ?>
+
+        <!-- [04] GESTIÓN DE INVENTARIO Y STOCK -->
+        <?php if ($id_rol == 2 || $id_rol == 5): ?>
+            <!-- ADMIN Y ROL INVENTARIO: CONTROL Y KARDEX TOTAL -->
+            <li class="nav-node-dropdown border-neon-orange">
+                <a href="#" class="node-trigger text-neon-orange">
+                    <i class="fa fa-cubes"></i> [04] Inventario <i class="fa fa-caret-down node-arrow"></i>
+                </a>
+                <ul class="dropdown-terminal">
+                    <li><a href="remisiones"><span class="t-orange">//</span> NOTAS DE REMISIÓN</a></li>
+                    <li><a href="dashboardInventario"><span class="t-orange">//</span> PRODUCTOS Y STOCK CENTRAL</a></li>
+                    <li><a href="stockInternoRma"><span class="t-orange">//</span> STOCK INTERNO RMA</a></li>
+                    <li><a href="stockCatalogo"><span class="t-orange">//</span> INSUMOS DEL TALLER RMA</a></li>
+                    <li><a href="stockAlertas"><span class="t-orange">//</span> ALERTAS DE STOCK CRÍTICO</a></li>
+                    <li><a href="stockAsignaciones"><span class="t-orange">//</span> ASIGNACIONES EN TALLER</a></li>
+                    <li><a href="stockMovimientos"><span class="t-orange">//</span> KARDEX DE MOVIMIENTOS</a></li>
+                    <li><a href="bajasStock"><span class="t-orange">//</span> BAJAS DE STOCK</a></li>
+                </ul>
+            </li>
+        <?php elseif ($id_rol == 1): ?>
+            <!-- TÉCNICO: CONSULTA DE REPUESTOS Y ASIGNACIÓN A CASOS -->
+            <li class="nav-node-dropdown border-neon-orange">
+                <a href="#" class="node-trigger text-neon-orange">
+                    <i class="fa fa-file-text-o"></i> [04] Stock y remisiones <i class="fa fa-caret-down node-arrow"></i>
+                </a>
+                <ul class="dropdown-terminal">
+                    <li><a href="nuevaRemision"><span class="t-orange">//</span> AGREGAR REMISIÓN</a></li>
+                    <li><a href="stockInternoRma"><span class="t-orange">//</span> STOCK INTERNO RMA</a></li>
+                    <li><a href="remisiones"><span class="t-orange">//</span> MIS REMISIONES</a></li>
+                    <li><a href="bajasStock"><span class="t-orange">//</span> BAJAS DE STOCK</a></li>
+                </ul>
+            </li>
+        <?php endif; ?>
+
+        <!-- [05] ANALÍTICA E INTELIGENCIA BI -->
+        <?php if ($id_rol == 2): ?>
+            <!-- ADMIN: PANEL DE ESTADÍSTICAS Y AUDITORÍAS TOTALES -->
+            <li class="nav-node-dropdown border-neon-purple">
+                <a href="#" class="node-trigger text-neon-purple">
+                    <i class="fa fa-line-chart"></i> [05] Estadísticas <i class="fa fa-caret-down node-arrow"></i>
+                </a>
+                <ul class="dropdown-terminal">
+                    <li><a href="dashboard"><span class="t-purple">//</span> PANEL DE ESTADÍSTICAS</a></li>
+                    <li><a href="slaProcesos"><span class="t-purple">//</span> TIEMPOS DE CICLO (SLA)</a></li>
+                    <li><a href="performanceTecnico"><span class="t-purple">//</span> RENDIMIENTO TÉCNICO</a></li>
+                    <li><a href="confiabilidadProducto"><span class="t-purple">//</span> ANÁLISIS DE FALLAS</a></li>
+                    <li><a href="auditoriaProveedores"><span class="t-purple">//</span> AUDITORÍA PROVEEDORES</a></li>
+                    <li><a href="recurrenciaClientes"><span class="t-purple">//</span> FIDELIZACIÓN CLIENTES</a></li>
+                </ul>
+            </li>
+        <?php elseif ($id_rol == 1): ?>
+            <!-- TÉCNICO: MONITOREO DE TIEMPOS DE CICLO Y PERFORMANCE OPERATIVA -->
+            <li class="nav-node-dropdown border-neon-purple">
+                <a href="#" class="node-trigger text-neon-purple">
+                    <i class="fa fa-line-chart"></i> [05] Tiempos de atención <i class="fa fa-caret-down node-arrow"></i>
+                </a>
+                <ul class="dropdown-terminal">
+                    <li><a href="slaProcesos"><span class="t-purple">//</span> TIEMPOS DE CICLO (SLA)</a></li>
+                    <li><a href="performanceTecnico"><span class="t-purple">//</span> RENDIMIENTO DEL TALLER</a></li>
+                </ul>
+            </li>
+        <?php endif; ?>
+
+        <!-- ACCIONES DE SESIÓN -->
+        <?php if ($id_rol !== null): ?>
+            <li class="nav-node-end m-left-auto">
+                <a href="salir" class="node-trigger cerrar-sesion-cyber">
+                    <i class="fa fa-power-off"></i> CERRAR SESIÓN
+                </a>
+            </li>
+        <?php else: ?>
+            <li class="nav-node-end m-left-auto">
+                <a href="login" class="node-trigger text-neon-cyan">
+                    <i class="fa fa-terminal"></i> INICIAR SESIÓN
+                </a>
+            </li>
+        <?php endif; ?>
+
+    </ul>
+</nav>
+
+<style>
+    /* Estilos se mantienen intactos */
+    .cyber-nav-hub {
+        position: relative;
+        margin: 15px 20px 25px 20px;
+        padding: 4px 15px;
+        border-radius: 8px;
+        border: 1px solid #1e293b;
+        background: #0f172a;
+        box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.25), 0 0 15px rgba(2, 132, 199, 0.1);
+        overflow: visible;
+        z-index: 1000;
+    }
+
+    .nav-scan-lines {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.15) 50%);
+        background-size: 100% 3px;
+        pointer-events: none;
+        border-radius: 8px;
+    }
+
+    .nav-nodes-list {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        font-family: 'Share Tech Mono', monospace;
+    }
+
+    .brand-node-logo {
+        display: flex;
+        align-items: center;
+        margin-right: 15px;
+        padding-right: 12px;
+        border-right: 1px solid #334155;
+    }
+
+    .logo-link-trigger {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+    }
+
+    .cyber-nav-logo {
+        height: 32px;
+        width: auto;
+        max-width: 140px;
+        object-fit: contain;
+        filter: drop-shadow(0 0 4px rgba(56, 189, 248, 0.3));
+        transition: transform 0.2s ease, filter 0.2s ease;
+    }
+
+    .logo-link-trigger:hover .cyber-nav-logo {
+        transform: scale(1.04);
+        filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.6));
+    }
+
+    .nav-node-dropdown {
+        position: relative;
+        padding: 6px 0;
+        margin-right: 4px;
+    }
+
+    .nav-node-dropdown.border-neon-blue {
+        border-left: 3px solid #38bdf8;
+    }
+
+    .nav-node-dropdown.border-neon-yellow {
+        border-left: 3px solid #fbbf24;
+    }
+
+    .nav-node-dropdown.border-neon-green {
+        border-left: 3px solid #4ade80;
+    }
+
+    .nav-node-dropdown.border-neon-orange {
+        border-left: 3px solid #f97316;
+    }
+
+    .nav-node-dropdown.border-neon-purple {
+        border-left: 3px solid #c084fc;
+    }
+
+    .text-neon-blue {
+        color: #38bdf8 !important;
+    }
+
+    .text-neon-yellow {
+        color: #fbbf24 !important;
+    }
+
+    .text-neon-green {
+        color: #4ade80 !important;
+    }
+
+    .text-neon-orange {
+        color: #f97316 !important;
+    }
+
+    .text-neon-purple {
+        color: #c084fc !important;
+    }
+
+    .text-neon-cyan {
+        color: #38bdf8 !important;
+    }
+
+    .t-cyan {
+        color: #38bdf8;
+        font-weight: bold;
+    }
+
+    .t-yellow {
+        color: #fbbf24;
+        font-weight: bold;
+    }
+
+    .t-green {
+        color: #4ade80;
+        font-weight: bold;
+    }
+
+    .t-orange {
+        color: #f97316;
+        font-weight: bold;
+    }
+
+    .t-purple {
+        color: #c084fc;
+        font-weight: bold;
+    }
+
+    .node-trigger {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 12px;
+        color: #94a3b8;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-decoration: none;
+        letter-spacing: 0.5px;
+        transition: all 0.2s ease;
+        border-radius: 0 4px 4px 0;
+    }
+
+    .node-trigger:hover {
+        background: rgba(255, 255, 255, 0.05);
+        color: #ffffff !important;
+        text-shadow: 0 0 8px currentColor;
+    }
+
+    .node-arrow {
+        font-size: 0.75rem;
+        margin-left: 4px;
+        transition: transform 0.25s ease;
+        opacity: 0.6;
+    }
+
+    .nav-node-dropdown:hover .node-arrow {
+        transform: rotate(180deg);
+        opacity: 1;
+    }
+
+    .dropdown-terminal {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 250px;
+        background-color: #0f172a;
+        border: 1px solid #334155;
+        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4);
+        list-style: none;
+        padding: 8px 0;
+        margin: 0;
+        display: none;
+        border-radius: 0 6px 6px 6px;
+        z-index: 2000;
+    }
+
+    .dropdown-terminal::before {
+        content: '';
+        position: absolute;
+        top: -12px;
+        left: 0;
+        right: 0;
+        height: 12px;
+        background: transparent;
+    }
+
+    .nav-node-dropdown:hover .dropdown-terminal {
+        display: block;
+        animation: dropFade 0.18s ease-out;
+    }
+
+    @keyframes dropFade {
+        from {
+            opacity: 0;
+            transform: translateY(-4px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .dropdown-terminal li a {
+        display: block;
+        padding: 10px 18px;
+        color: #cbd5e1;
+        font-size: 0.8rem;
+        text-decoration: none;
+        letter-spacing: 0.5px;
+        transition: all 0.15s ease;
+    }
+
+    .dropdown-terminal li a:hover {
+        background-color: rgba(249, 115, 22, 0.12);
+        color: #ffffff !important;
+        padding-left: 22px;
+    }
+
+    .m-left-auto {
+        margin-left: auto;
+    }
+
+    .cerrar-sesion-cyber {
+        color: #f87171 !important;
+        border: 1px solid rgba(248, 113, 113, 0.3);
+        border-radius: 4px;
+        padding: 6px 14px !important;
+        margin-right: 4px;
+    }
+
+    .cerrar-sesion-cyber:hover {
+        background: rgba(239, 68, 68, 0.15) !important;
+        border-color: #ef4444;
+        box-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+        color: #ffffff !important;
+    }
+</style>
+
+<script>
+(()=>{const nav=document.querySelector('.cyber-nav-hub'),toggle=nav.querySelector('.rma-menu-toggle');toggle.onclick=()=>{const open=nav.classList.toggle('rma-menu-abierto');toggle.setAttribute('aria-expanded',String(open));};nav.querySelectorAll('.nav-node-dropdown>.node-trigger[href="#"]').forEach(a=>{a.setAttribute('aria-expanded','false');a.onclick=e=>{e.preventDefault();const li=a.parentElement,open=li.classList.toggle('rma-submenu-abierto');a.setAttribute('aria-expanded',String(open));};});})();
+</script>

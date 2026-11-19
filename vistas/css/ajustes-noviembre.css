@@ -1,0 +1,52 @@
+/* Interfaz operativa compartida: controles legibles y espacio adaptable. */
+body,button,input,select,textarea,.font-mono,.node-label,.cyber-mini-table,.cyber-input,.cyber-input-search{font-family:Segoe UI,Arial,sans-serif!important}
+.wrapper,.dashboard-cyber-wrapper{background-image:none!important}
+.content-wrapper{min-width:0;max-width:1800px;margin-right:auto!important;margin-left:auto!important}
+.cyber-header{padding:20px!important;border-bottom:1px solid #dbe3ed!important}
+.header-brand-glitch{min-width:0;flex-wrap:wrap}
+.header-brand-glitch h2{font-size:20px!important;line-height:1.35;overflow-wrap:anywhere}
+.cyber-logo-icon{display:none}
+.cyber-panel-card{border-radius:12px!important;box-shadow:0 3px 14px #152e4c08!important}
+.panel-cyber-header h4{line-height:1.45;letter-spacing:0!important}
+.node-label{font-size:13px!important;line-height:1.5}
+.cyber-input,.cyber-input-search{font-size:14px!important;min-height:42px;border-radius:7px!important}
+.cyber-mini-table{font-size:14px!important}
+.cyber-mini-table th{font-family:inherit!important;font-size:12px!important;white-space:normal;min-width:75px}
+.cyber-mini-table td{line-height:1.45;overflow-wrap:anywhere}
+.cyber-mini-table td:last-child{min-width:180px;flex-wrap:wrap}
+.btn-cyber-action,.btn-cyber-add,.btn-terminal-edit,.btn-terminal-view,.btn-terminal-delete,.btn-terminal-reprint,.node-submit-btn,.btn,.node-submit-btn-wa,.cyber-file-trigger{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:38px;padding:8px 13px!important;border-radius:7px!important;font-family:inherit!important;font-size:13px!important;font-weight:600;line-height:1.4;text-decoration:none;transition:background .15s,box-shadow .15s}
+.btn-cyber-action,.btn-cyber-add,.btn-terminal-view,.btn-terminal-edit{background:#edf4fc!important;border:1px solid #c8d9ee!important;color:#174d85!important;margin:3px 1px}
+.node-submit-btn,.btn-primary,.node-submit-btn-wa{background:#175c9f!important;color:#fff!important;border:1px solid #175c9f!important}
+.btn-cyber-action:hover,.btn-cyber-add:hover,.btn-terminal-view:hover,.btn-terminal-edit:hover{background:#dceafb!important;color:#123d68!important}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #4693de!important;outline-offset:2px}
+button:disabled,[aria-disabled=true]{opacity:.55;cursor:not-allowed}
+.rma-row-check,.rma-all-check{margin:0 8px 0 0!important;width:17px;height:17px;vertical-align:middle;accent-color:#175c9f}
+.rma-export-toolbar{padding:12px;background:#f5f8fc;border:1px solid #dbe3ed;border-radius:9px}
+.rma-export-toolbar .form-control{font-size:13px;max-width:100%;height:38px}
+.rma-timeline-examples{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:12px 0}
+.custom-cyber-modal-overlay{padding:16px;overflow:auto;align-items:flex-start!important}
+.custom-cyber-modal-container{margin:auto!important;max-height:calc(100dvh - 32px);overflow:auto!important}
+.cyber-modal-footer{flex-wrap:wrap}
+.panel-cyber-body-table,.table-responsive{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cyber-grid-three-columns>* , .cyber-grid-two-equal>*{min-width:0}
+.barcode-status-tag{display:none}
+.cyber-input-search{padding-right:12px!important}
+.timeline-node-block{background:#fff!important;color:#172b43!important}
+.timeline-node-block [style*="color:#fff"]{color:#172b43!important}
+@media(max-width:1100px){.cyber-grid-super-dense{grid-template-columns:repeat(3,minmax(0,1fr))!important}.cyber-grid-three-columns{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:760px){.content-wrapper,.dashboard-cyber-wrapper{padding:12px!important}.cyber-header{padding:14px!important;flex-wrap:wrap;gap:12px}.header-brand-glitch h2{font-size:18px!important}.cyber-grid-two-equal,.cyber-grid-three-columns,.cyber-form-group-row{grid-template-columns:minmax(0,1fr)!important}.table-span-2{grid-column:span 1!important}.cyber-grid-super-dense{grid-template-columns:repeat(2,minmax(0,1fr))!important}.cyber-search-box{min-width:0!important;width:100%;flex-basis:100%}.cyber-panel-card{padding:14px!important}.rma-export-toolbar>*{width:100%!important}.cyber-meta-nodes{flex-wrap:wrap}.cyber-select-list{max-width:100%}.cyber-mini-table{min-width:620px}.navbar-nav{margin:0}.cyber-modal-footer>*{width:100%}.rma-timeline-examples .btn{width:100%}}
+@media print{.rma-export-toolbar,.rma-row-check,.rma-all-check{display:none!important}}
+
+.cyber-nav-hub{background:#fff!important;border-color:#dbe3ed!important;box-shadow:0 3px 14px #152e4c10!important}
+.nav-scan-lines{display:none}.nav-nodes-list{font-family:Segoe UI,Arial,sans-serif!important;flex-wrap:wrap}
+.cyber-nav-hub .node-trigger{font-family:inherit!important;letter-spacing:0;color:#243e5d!important;white-space:nowrap}
+.cyber-nav-hub .node-trigger:hover{background:#edf4fc!important;text-shadow:none!important;color:#175c9f!important}
+.dropdown-terminal{background:#fff!important;border-color:#dbe3ed!important;box-shadow:0 6px 20px #152e4c22!important}
+.dropdown-terminal a{color:#243e5d!important;font-family:Segoe UI,Arial,sans-serif!important}
+.dropdown-terminal a:hover{background:#edf4fc!important;color:#175c9f!important}
+.nav-node-dropdown:focus-within>.dropdown-terminal,.nav-node-dropdown.rma-submenu-abierto>.dropdown-terminal{display:block!important}
+.rma-menu-toggle{display:none;background:#175c9f;color:#fff;border:0;border-radius:7px;padding:10px 16px;font-weight:600}
+#tablaCasos td:first-child{min-width:235px}#tablaCasos td:nth-child(5),.badge-status-cyber{white-space:nowrap}
+#tablaCasos td:first-child img{display:inline-block;background:#fff;object-fit:contain;padding:3px;box-sizing:content-box}
+.ticket-barcode{background:#fff;padding:8px;box-sizing:content-box;max-width:100%}
+@media(max-width:760px){.cyber-nav-hub{margin:12px!important;padding:10px!important}.rma-menu-toggle{display:block}.nav-nodes-list{display:none!important}.rma-menu-abierto .nav-nodes-list{display:flex!important;flex-direction:column;align-items:stretch;gap:8px;margin-top:12px}.nav-node-dropdown,.nav-node-end,.brand-node-logo{margin:0!important;width:100%;border-right:0!important}.nav-node-dropdown .dropdown-terminal{position:static!important;min-width:0!important;width:100%;box-shadow:none!important}.nav-node-dropdown:hover>.dropdown-terminal{display:none}.nav-node-dropdown.rma-submenu-abierto>.dropdown-terminal{display:block!important}.nav-nodes-list .node-trigger{white-space:normal}.cyber-input-file{max-width:100%;font-size:12px}}

@@ -1,0 +1,11 @@
+.rma-pagina-oculta{display:none!important}
+.rma-paginacion{display:flex;align-items:center;gap:10px;flex-wrap:wrap;max-width:100%;color:#243e5d;font:14px/1.5 "Segoe UI",Arial,sans-serif;box-sizing:border-box}
+.rma-paginacion-superior{justify-content:space-between;margin:15px 0 10px;padding:10px 12px;background:#f5f8fc;border:1px solid #dbe3ed;border-radius:8px}
+.rma-paginacion-inferior{justify-content:flex-end;margin:12px 0 15px}
+.rma-paginacion label{display:inline-flex;align-items:center;gap:8px;margin:0;font-weight:600;white-space:nowrap}
+.rma-paginacion .form-control{display:inline-block;width:auto;min-height:38px;height:38px;margin:0;padding:6px 10px;border:1px solid #c8d9ee;border-radius:6px;font:inherit;color:#243e5d;background:#fff}
+.rma-paginacion .rma-paginacion-numero{width:76px}
+.rma-paginacion .btn{min-height:38px;margin:0}
+.rma-paginacion-resumen{font-weight:400;overflow-wrap:anywhere}
+@media(max-width:760px){.rma-paginacion{gap:8px;font-size:13px}.rma-paginacion-inferior{justify-content:flex-start}.rma-paginacion-superior{align-items:flex-start}.rma-paginacion-resumen{flex-basis:100%}}
+@media print{.rma-paginacion{display:none!important}.rma-pagina-oculta{display:table-row!important}}
