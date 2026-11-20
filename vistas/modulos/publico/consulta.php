@@ -5,8 +5,8 @@
         <div class="brand-container">
             <img src="vistas/img/micrologo3.png" alt="MicroExpress" class="navbar-logo-img">
             <div class="brand-title">
-                <h1>MICROEXPRESS</h1>
-                <span class="sub-brand">SERVICE & SUPPORT HUB</span>
+                <h1>MICROEXPRESS SRL</h1>
+                <span class="sub-brand">SERVICIO TÉCNICO & RMA</span>
             </div>
         </div>
         <div class="header-actions">
